@@ -55,7 +55,7 @@ Neste projeto, utilizamos a comunicação serial entre um Arduino e um script Py
 Passo 2: Configuração do Python
 
     Clone este repositório:
-git clone https://github.com/seu-usuario/seu-repositorio.git
+git clone https://github.com/marcio1978/python_arduino_voz.git
 cd seu-repositorio
 
 Passo 2: Configuração do Python
@@ -64,7 +64,7 @@ Passo 2: Configuração do Python
 
     bash
 
-git clone https://github.com/seu-usuario/seu-repositorio.git
+git clone https://github.com/marcio1978/python_arduino_voz.git
 cd seu-repositorio
 
 Instale as dependências Python: Certifique-se de que o Python 3 está instalado. Em seguida, execute:
