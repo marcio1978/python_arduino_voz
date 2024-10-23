@@ -73,7 +73,7 @@ bash
 
     pip install pyserial SpeechRecognition
 
-    Conecte o Arduino à porta USB e ajuste a porta serial no script Python, conforme necessário (por exemplo, /dev/ttyACM0 no Linux ou COM3 no Windows).
+    Conecte o Arduino à porta USB e ajuste a porta serial no script Python, conforme necessário (por exemplo, /dev/ttyACM0 no Linux).
 
 Passo 3: Código Python
 
