@@ -1,0 +1,24 @@
+#!/bin/bash
+
+USUARIOS_FILE="/tmp/usuarios.txt"
+
+if [[ ! -f "$USUARIOS_FILE" ]]; then
+    echo "Arquivo $USUARIOS_FILE não encontrado!"
+    exit 1
+fi
+
+while IFS=, read -r username password rest
+# while IFS=, read -r username password 
+do
+    if id "$username" &>/dev/null; then
+        echo "Usuário $username já existe, pulando..."
+        continue
+    fi
+
+    (echo "$password"; echo "$password") | smbpasswd -a "$username" 2&>/dev/null
+
+    echo "Usuário $username adicionado com sucesso."
+
+done < "$USUARIOS_FILE"
+
+echo "Todos os usuários foram adicionados com sucesso."

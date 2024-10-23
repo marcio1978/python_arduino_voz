@@ -1,0 +1,3 @@
+#!/bin/bash
+sudo chmod 777 /dev/ttyACM0
+python3 /usr/sbin/som.py 2>/dev/null
