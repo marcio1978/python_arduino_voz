@@ -50,7 +50,8 @@ Neste projeto, utilizamos a comunicação serial entre um Arduino e um script Py
        }
      }
    }
-    Conecte seu Arduino ao computador e faça o upload do código para a placa.
+
+Conecte seu Arduino ao computador e faça o upload do código para a placa.
 
 Passo 2: Configuração do Python
 
