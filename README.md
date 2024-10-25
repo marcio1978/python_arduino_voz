@@ -1,6 +1,6 @@
 # Comando de Voz para Controle de LEDs
 
-Este projeto foi desenvolvido para autodidatas e entusiastas de eletrônica e programação que desejam explorar o controle de hardware com Python e Arduino usando reconhecimento de voz. Ele demonstra como controlar LEDs conectados a um Arduino por meio de comandos de voz, reconhecidos por um script em Python.
+Este projeto foi desenvolvido para autodidatas e entusiastas de eletrônica e programação que desejam explorar o controle de hardware com Python e Arduino usando reconhecimento de voz. Ele demonstra como controlar LEDs conectados a um Arduino por meio de comandos de voz, reconhecidos por um script em Python e outros scripts no sistema Linux. 
 
 ## Descrição do Projeto
 
@@ -54,18 +54,22 @@ Neste projeto, utilizamos a comunicação serial entre um Arduino e um script Py
 
 Passo 2: Configuração do Python
 
-    Clone este repositório:
-git clone https://github.com/marcio1978/python_arduino_voz.git
-cd seu-repositorio
+Clone este repositório:
+
+bash
+      
+      git clone https://github.com/marcio1978/python_arduino_voz.git
+      cd seu-repositorio
+
 
 Passo 2: Configuração do Python
 
-    Clone este repositório:
+Clone este repositório:
 
-    bash
-
-git clone https://github.com/marcio1978/python_arduino_voz.git
-cd seu-repositorio
+bash
+      
+      git clone https://github.com/marcio1978/python_arduino_voz.git
+      cd seu-repositorio
 
 Instale as dependências Python: Certifique-se de que o Python 3 está instalado. Em seguida, execute:
 
@@ -73,48 +77,48 @@ bash
 
     pip install pyserial SpeechRecognition
 
-    Conecte o Arduino à porta USB e ajuste a porta serial no script Python, conforme necessário (por exemplo, /dev/ttyACM0 no Linux).
+Conecte o Arduino à porta USB e ajuste a porta serial no script Python, conforme necessário (por exemplo, /dev/ttyACM0 no Linux).
 
 Passo 3: Código Python
 
 Copie o seguinte código Python para o arquivo controle_led.py:
 
-python
+      python
 
-import speech_recognition as sr
-import serial
-import time
+      import speech_recognition as sr
+      import serial
+      import time
 
-# Configurando a comunicação serial com o Arduino
-arduino = serial.Serial('/dev/ttyACM0', 9600, timeout=1)  # Ajuste a porta conforme necessário
-time.sleep(2)  # Tempo para o Arduino inicializar
+      # Configurando a comunicação serial com o Arduino
+      arduino = serial.Serial('/dev/ttyACM0', 9600, timeout=1)  # Ajuste a porta conforme necessário
+      time.sleep(2)  # Tempo para o Arduino inicializar
 
-def acender_led1():
-    arduino.write(b'1')  # Envia o comando para ligar o LED 1 (pino 13)
+      def acender_led1():
+          arduino.write(b'1')  # Envia o comando para ligar o LED 1 (pino 13)
 
-def apagar_led1():
-    arduino.write(b'0')  # Envia o comando para desligar o LED 1
+      def apagar_led1():
+          arduino.write(b'0')  # Envia o comando para desligar o LED 1
 
-def acender_led2():
-    arduino.write(b'2')  # Envia o comando para ligar o LED 2 (pino 12)
+      def acender_led2():
+          arduino.write(b'2')  # Envia o comando para ligar o LED 2 (pino 12)
 
-def apagar_led2():
-    arduino.write(b'3')  # Envia o comando para desligar o LED 2
+      def apagar_led2():
+          arduino.write(b'3')  # Envia o comando para desligar o LED 2
 
-# Inicializando o reconhecedor de fala
-recognizer = sr.Recognizer()
+      # Inicializando o reconhecedor de fala
+      recognizer = sr.Recognizer()
 
-while True:
-    try:
-        with sr.Microphone() as source:
-            print("Diga um comando: ")
-            audio = recognizer.listen(source)
+      while True:
+          try:
+              with sr.Microphone() as source:
+                  print("Diga um comando: ")
+                  audio = recognizer.listen(source)
 
-            command = recognizer.recognize_google(audio, language="pt-BR")
-            print(f"Você disse: {command}")
+                  command = recognizer.recognize_google(audio, language="pt-BR")
+                  print(f"Você disse: {command}")
 
-            # Converte o comando para minúsculas
-            command = command.lower()
+                  # Converte o comando para minúsculas
+                  command = command.lower()
 
             if command == "liga":
                 acender_led1()
@@ -137,13 +141,13 @@ while True:
 
 Como Executar
 
-    Execute o script Python: No terminal, execute:
+   Execute o script Python: No terminal, execute:
 
-    bash
+   bash
 
     python controle_led.py
 
-    Diga um comando de voz: O microfone irá capturar seus comandos. Fale "liga", "desliga", "liga dois" ou "desliga dois" para controlar os LEDs conectados ao Arduino.
+   Diga um comando de voz: O microfone irá capturar seus comandos. Fale "liga", "desliga", "liga dois" ou "desliga dois" para controlar os LEDs conectados ao Arduino.
 
 Comandos de Voz
 
